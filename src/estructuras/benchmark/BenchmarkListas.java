@@ -737,50 +737,46 @@ public final class BenchmarkListas {
     }
 
     private static Resultado medirTopFront(
-            ListaOps lista,
-            int[] datos,
-            int k) {
+        ListaOps lista,
+        int[] datos,
+        int k) {
 
-        long total = 0L;
         long checksum = 0L;
 
+        long inicio = System.nanoTime();
+
         for (int i = 0; i < k; i++) {
-
-            long inicio = System.nanoTime();
-
-            int valor = lista.topFront();
-
-            long fin = System.nanoTime();
-
-            total += fin - inicio;
-            checksum += valor;
+                checksum += lista.topFront();
         }
 
-        return new Resultado(total, checksum);
-    }
+        long fin = System.nanoTime();
+
+        return new Resultado(
+                fin - inicio,
+                checksum
+        );
+        }
 
     private static Resultado medirTopBack(
-            ListaOps lista,
-            int[] datos,
-            int k) {
+        ListaOps lista,
+        int[] datos,
+        int k) {
 
-        long total = 0L;
         long checksum = 0L;
 
+        long inicio = System.nanoTime();
+
         for (int i = 0; i < k; i++) {
-
-            long inicio = System.nanoTime();
-
-            int valor = lista.topBack();
-
-            long fin = System.nanoTime();
-
-            total += fin - inicio;
-            checksum += valor;
+                checksum += lista.topBack();
         }
 
-        return new Resultado(total, checksum);
-    }
+        long fin = System.nanoTime();
+
+        return new Resultado(
+                fin - inicio,
+                checksum
+        );
+        }
 
     private static Resultado medirFind(
             ListaOps lista,
@@ -932,53 +928,46 @@ public final class BenchmarkListas {
     }
 
     private static Resultado medirSize(
-            ListaOps lista,
-            int[] datos,
-            int k) {
+        ListaOps lista,
+        int[] datos,
+        int k) {
 
-        long total = 0L;
         long checksum = 0L;
 
+        long inicio = System.nanoTime();
+
         for (int i = 0; i < k; i++) {
-
-            long inicio = System.nanoTime();
-
-            int valor = lista.size();
-
-            long fin = System.nanoTime();
-
-            total += fin - inicio;
-            checksum += valor;
+                checksum += lista.size();
         }
 
-        return new Resultado(total, checksum);
-    }
+        long fin = System.nanoTime();
+
+        return new Resultado(
+                fin - inicio,
+                checksum
+        );
+        }
 
     private static Resultado medirIsEmpty(
-            ListaOps lista,
-            int[] datos,
-            int k) {
+        ListaOps lista,
+        int[] datos,
+        int k) {
 
-        long total = 0L;
         long checksum = 0L;
 
+        long inicio = System.nanoTime();
+
         for (int i = 0; i < k; i++) {
-
-            long inicio = System.nanoTime();
-
-            boolean vacia =
-                    lista.isEmpty();
-
-            long fin = System.nanoTime();
-
-            total += fin - inicio;
-
-            checksum +=
-                    vacia ? 1 : 0;
+                checksum += lista.isEmpty() ? 1 : 0;
         }
 
-        return new Resultado(total, checksum);
-    }
+        long fin = System.nanoTime();
+
+        return new Resultado(
+                fin - inicio,
+                checksum
+        );
+        }
 
     private static void restaurarElemento(
             ListaOps lista,
@@ -1055,23 +1044,23 @@ public final class BenchmarkListas {
     private static int kSegunTamano(int n) {
 
         if (n <= 100) {
-            return 200;
+                return 200;
         }
 
         if (n <= 1_000) {
-            return 100;
+                return 100;
         }
 
         if (n <= 10_000) {
-            return 20;
+                return 20;
         }
 
         if (n <= 100_000) {
-            return 5;
+                return 20;
         }
 
         return 1;
-    }
+        }
 
     /**
      * Para operaciones Θ(1) utilizamos un lote
