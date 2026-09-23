@@ -1,0 +1,100 @@
+DIAGNOSTICO EXPERIMENTAL - MÉTODOS EQUIVALENTES
+========================================================================
+
+Comparación List / Stack
+Lista seleccionada: ListaSimpleSinCola
+
+STACK
+=====
+
+PushFront vs Push
+-----------------
+ListaSimpleSinCola: mediana(n=100000) = 9.595 ns/op
+  ratios: 10->100: 0.441, 100->1000: 0.470, 1000->10000: 0.612, 10000->100000: 2.132
+PilaArreglo: mediana(n=100000) = 9.345 ns/op
+  ratios: 10->100: 0.424, 100->1000: 1.211, 1000->10000: 0.736, 10000->100000: 2.396
+
+PopFront vs Pop
+---------------
+ListaSimpleSinCola: mediana(n=100000) = 9.495 ns/op
+  ratios: 10->100: 2.102, 100->1000: 0.398, 1000->10000: 0.607, 10000->100000: 2.316
+PilaArreglo: mediana(n=100000) = 8.921 ns/op
+  ratios: 10->100: 0.691, 100->1000: 1.058, 1000->10000: 0.687, 10000->100000: 2.586
+
+TopFront vs Peek
+----------------
+ListaSimpleSinCola: mediana(n=100000) = 1.980 ns/op
+  ratios: 10->100: 0.386, 100->1000: 1.191, 1000->10000: 0.845, 10000->100000: 0.959
+PilaArreglo: mediana(n=100000) = 2.095 ns/op
+  ratios: 10->100: 0.112, 100->1000: 1.155, 1000->10000: 0.855, 10000->100000: 0.950
+
+Find + Erase vs Delete
+----------------------
+ListaSimpleSinCola: mediana(n=100000) = 262216.667 ns/op
+  ratios: 10->100: 8.092, 100->1000: 5.635, 1000->10000: 8.766, 10000->100000: 8.941
+PilaArreglo: mediana(n=100000) = 107316.667 ns/op
+  ratios: 10->100: 1.216, 100->1000: 12.923, 1000->10000: 7.843, 10000->100000: 9.537
+
+Size
+----
+ListaSimpleSinCola: mediana(n=100000) = 1.805 ns/op
+  ratios: 10->100: 0.090, 100->1000: 1.047, 1000->10000: 0.974, 10000->100000: 0.915
+PilaArreglo: mediana(n=100000) = 1.757 ns/op
+  ratios: 10->100: 0.090, 100->1000: 1.017, 1000->10000: 0.966, 10000->100000: 0.956
+
+IsEmpty
+-------
+ListaSimpleSinCola: mediana(n=100000) = 1.835 ns/op
+  ratios: 10->100: 1.053, 100->1000: 1.025, 1000->10000: 0.956, 10000->100000: 0.948
+PilaArreglo: mediana(n=100000) = 1.817 ns/op
+  ratios: 10->100: 0.983, 100->1000: 1.006, 1000->10000: 0.970, 10000->100000: 0.940
+
+
+Comparación List / Queue
+Lista seleccionada: ListaSimpleConCola
+
+QUEUE
+=====
+
+PushBack vs Enqueue
+-------------------
+ListaSimpleConCola: mediana(n=100000) = 9.995 ns/op
+  ratios: 10->100: 0.790, 100->1000: 1.005, 1000->10000: 0.595, 10000->100000: 1.723
+ColaArreglo: mediana(n=100000) = 9.395 ns/op
+  ratios: 10->100: 0.376, 100->1000: 1.418, 1000->10000: 0.848, 10000->100000: 1.978
+
+PopFront vs Dequeue
+-------------------
+ListaSimpleConCola: mediana(n=100000) = 9.220 ns/op
+  ratios: 10->100: 2.274, 100->1000: 1.843, 1000->10000: 0.311, 10000->100000: 1.684
+ColaArreglo: mediana(n=100000) = 9.570 ns/op
+  ratios: 10->100: 0.664, 100->1000: 2.910, 1000->10000: 0.427, 10000->100000: 2.139
+
+TopFront vs Front
+-----------------
+ListaSimpleConCola: mediana(n=100000) = 1.958 ns/op
+  ratios: 10->100: 1.019, 100->1000: 1.074, 1000->10000: 0.867, 10000->100000: 0.984
+ColaArreglo: mediana(n=100000) = 2.132 ns/op
+  ratios: 10->100: 0.445, 100->1000: 0.948, 1000->10000: 0.840, 10000->100000: 0.976
+
+Find + Erase vs Delete
+----------------------
+ListaSimpleConCola: mediana(n=100000) = 280283.333 ns/op
+  ratios: 10->100: 2.993, 100->1000: 14.462, 1000->10000: 8.437, 10000->100000: 10.451
+ColaArreglo: mediana(n=100000) = 129633.333 ns/op
+  ratios: 10->100: 2.031, 100->1000: 9.577, 1000->10000: 9.543, 10000->100000: 9.513
+
+Size
+----
+ListaSimpleConCola: mediana(n=100000) = 1.788 ns/op
+  ratios: 10->100: 1.420, 100->1000: 0.646, 1000->10000: 0.960, 10000->100000: 0.988
+ColaArreglo: mediana(n=100000) = 1.748 ns/op
+  ratios: 10->100: 1.075, 100->1000: 0.586, 1000->10000: 0.951, 10000->100000: 0.980
+
+IsEmpty
+-------
+ListaSimpleConCola: mediana(n=100000) = 1.935 ns/op
+  ratios: 10->100: 0.862, 100->1000: 0.623, 1000->10000: 0.952, 10000->100000: 1.027
+ColaArreglo: mediana(n=100000) = 1.890 ns/op
+  ratios: 10->100: 1.630, 100->1000: 0.599, 1000->10000: 0.942, 10000->100000: 1.007
+
