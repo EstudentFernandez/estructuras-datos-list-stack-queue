@@ -82,5 +82,5 @@ comparando diferentes representaciones y su complejidad teórica y experimental.
 
 
 
-Proyecto en desarrollo.
+Proyecto finalizado
 
